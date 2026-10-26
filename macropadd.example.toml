@@ -1,0 +1,19 @@
+# macropadd (lite) configuration. Copy to ~/.config/macropadd/config.toml
+# (or point MACROPADD_CONFIG at another path).
+
+[serial]
+# glob defaults to /dev/cu.usbmodem* on macOS, /dev/ttyACM* on Linux; it is
+# only the fallback when no port reports Adafruit's USB vendor id.
+# port = "/dev/cu.usbmodem1103"   # force the data port instead of auto-detect
+baud = 115200
+reconnect_s = 1.0
+ping_interval_s = 2.0
+
+[daemon]
+log_level = "INFO"
+
+# `macropadd agents install` adds the hooks to Claude Code / Codex.
+[agents]
+approve_on_pad = true    # permission prompts wait for keys 9 / 10 on the pad...
+approve_wait_s = 30      # ...this long, then the agent asks in its terminal
+keep_awake = true        # no system suspend while agents work
